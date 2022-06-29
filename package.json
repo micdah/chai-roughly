@@ -19,7 +19,10 @@
     "deep-eql",
     "tolerance"
   ],
-  "author": "Michael Dahl <michael@dahl.photo>, Tobias Bieniek <tobias.bieniek@gmail.com>",
+  "author": "Michael Dahl <michael@dahl.photo>",
+  "contributors": [
+    "Tobias Bieniek <tobias.bieniek@gmail.com>"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/micdah/chai-roughly/issues"
