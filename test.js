@@ -43,4 +43,8 @@ describe('expect(...).to.roughly.deep.equal(...)', function () {
             }
         })
     })
+
+    it('should fail', function () {
+        expect(true).to.equal(false)
+    })
 })

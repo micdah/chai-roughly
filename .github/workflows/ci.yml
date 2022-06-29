@@ -33,3 +33,14 @@ jobs:
           name: Test Results
           path: 'results.json'
           reporter: mocha-json
+
+  bump-version:
+    name: Bump Version
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Show package.json
+        run: cat package.json
