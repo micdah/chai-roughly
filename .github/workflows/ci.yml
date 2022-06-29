@@ -44,3 +44,17 @@ jobs:
 
       - name: Show package.json
         run: cat package.json
+
+      - name: 'Bump version'
+        uses: phips28/gh-action-bump-version@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          default: patch
+          tag-prefix: v
+          skip-push: true
+          target-branch: master
+          commit-message: 'CI: Bumps version to {{version}}'
+
+      - name: Show package.json
+        run: cat package.json
