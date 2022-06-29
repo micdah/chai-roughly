@@ -1,11 +1,7 @@
-var mocha = require('mocha')
-var chai = require('chai')
+const {use, expect} = require('chai')
 
-var describe = mocha.describe
-var it = mocha.it
-var expect = chai.expect
-
-chai.use(require('./index'))
+// Add chai-roughly-v2 from local source
+use(require('./index'))
 
 describe('expect(...).to.roughly.deep.equal(...)', function () {
     it('passes for empty objects', function () {
@@ -42,9 +38,5 @@ describe('expect(...).to.roughly.deep.equal(...)', function () {
                 value: 41.999999
             }
         })
-    })
-
-    it('should fail', function () {
-        expect(true).to.equal(false)
     })
 })
