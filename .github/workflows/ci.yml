@@ -20,6 +20,9 @@ jobs:
           cache: 'npm'
           cache-dependency-path: package-lock.json
 
+      - name: Clean install
+        run: npm ci
+
       - name: Tests
         run: npx mocha --reporter json > results.json
 
