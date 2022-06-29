@@ -38,11 +38,14 @@ jobs:
     name: Bump Version
     needs: test
     runs-on: ubuntu-latest
+    outputs:
+      newTag: ${{ steps.bump.outputs.newTag }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
       - name: 'Bump version'
+        id: bump
         uses: phips28/gh-action-bump-version@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -51,3 +54,29 @@ jobs:
           tag-prefix: v
           target-branch: master
           commit-message: 'CI: Bumps version to {{version}}'
+
+  publish:
+    name: Publish
+    needs: bump-version
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          - ref: tags/${{ needs.bump-version.outputs.newTag }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '17.x'
+          cache: 'npm'
+          cache-dependency-path: package-lock.json
+
+      - name: Clean install
+        run: npm ci
+
+      - name: Publish
+        uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          dry-run: true
