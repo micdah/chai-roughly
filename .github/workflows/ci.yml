@@ -63,7 +63,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
-          - ref: "tags/${{ needs.bump-version.outputs.newTag }}"
+          ref: tags/${{ needs.bump-version.outputs.newTag }}
 
       - name: Setup Node
         uses: actions/setup-node@v3
