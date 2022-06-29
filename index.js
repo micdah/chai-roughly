@@ -1,7 +1,7 @@
 const debug = require('debug')
 const deep_eql = require('deep-eql')
 
-const log = debug('chai-roughly')
+const log = debug('chai-roughly-v2')
 
 module.exports = function (chai, utils) {
     const Assertion = chai.Assertion

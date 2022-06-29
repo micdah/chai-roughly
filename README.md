@@ -1,31 +1,31 @@
-
 chai-roughly
 ==============================================================================
 
-[![Build Status](https://travis-ci.org/Turbo87/chai-roughly.svg?branch=master)](https://travis-ci.org/Turbo87/chai-roughly)
-[![Build status](https://ci.appveyor.com/api/projects/status/github/Turbo87/chai-roughly?svg=true)](https://ci.appveyor.com/project/Turbo87/chai-roughly/branch/master)
-[![npm](https://img.shields.io/npm/v/chai-roughly.svg)](https://www.npmjs.com/package/chai-roughly)
+![CI Build](https://github.com/micdah/chai-roughly/actions/workflows/ci.yml/badge.svg)
+[![npm](https://img.shields.io/npm/v/chai-roughly-v2.svg)](https://www.npmjs.com/package/chai-roughly-v2)
 
-deep equals assertions with tolerance for chai
+deep equals assertions with tolerance for chai.
 
+### Why a v2?
 
-Installation
-------------------------------------------------------------------------------
+This is a forked version from [Turbo87/chai-roughly](https://github.com/Turbo87/chai-roughly), which have been updated
+to use the latest version of [chaijs/deep-eql](https://github.com/chaijs/deep-eql), rather than using a modified forked
+version.
 
+## Installation
+
+```shell
+npm install --save-dev chai-roughly-v2
 ```
-npm install --save-dev chai-roughly
-```
 
-Usage
-------------------------------------------------------------------------------
+## Usage
 
-After importing `chai` add the following code to use `chai-roughly` assertions:
+After importing `chai` add the following code to use `chai-roughly-v2` assertions:
 
 ```js
-var chai = require('chai');
-var expect = chai.expect;
+const chai = require('chai');
 
-chai.use(require('chai-roughly'));
+chai.use(require('chai-roughly-v2'));
 ```
 
 Now you can use the `expect(...).to.roughly.deep.equal(...)` chain for deep
@@ -34,12 +34,11 @@ and can be overwritten by using e.g.
 `expect(...).to.roughly(0.001).deep.equal(...)`.
 
 ```js
-it('works', function() {
-  expect({ value: 42 }).to.roughly.deep.equal({ value: 41.9999999 });
+it('works', function () {
+    expect({value: 42}).to.roughly.deep.equal({value: 41.9999999});
 });
 ```
 
+## License
 
-License
-------------------------------------------------------------------------------
 chai-roughly is licensed under the [MIT License](LICENSE).
