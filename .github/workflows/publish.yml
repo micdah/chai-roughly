@@ -1,9 +1,9 @@
-name: 'CI'
+name: 'CI Publish'
 
 on:
   push:
     tags:
-      - 'v2.*'
+      - '*'
 
 jobs:
   publish:
