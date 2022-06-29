@@ -51,3 +51,27 @@ jobs:
           tag-prefix: v
           target-branch: master
           commit-message: 'CI: Bumps version to {{version}}'
+
+  publish:
+    name: Publish
+    needs: bump-version
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '17.x'
+          cache: 'npm'
+          cache-dependency-path: package-lock.json
+
+      - name: Clean install
+        run: npm ci
+
+      - name: Publish
+        uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          dry-run: true

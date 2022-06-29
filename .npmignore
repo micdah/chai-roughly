@@ -1,5 +1,5 @@
 test.js
 .gitignore
-.travis.yml
-appveyor.yml
-CHANGELOG.md
+.idea
+.github/
+.idea/
