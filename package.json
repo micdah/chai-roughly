@@ -1,6 +1,6 @@
 {
   "name": "chai-roughly-v2",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "deep equals assertions with tolerance for chai (with fixed dependency on deep-eql)",
   "main": "index.js",
   "scripts": {
