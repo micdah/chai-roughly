@@ -4,7 +4,7 @@ chai-roughly
 ![CI Build](https://github.com/micdah/chai-roughly/actions/workflows/ci.yml/badge.svg)
 [![npm](https://img.shields.io/npm/v/chai-roughly-v2.svg)](https://www.npmjs.com/package/chai-roughly-v2)
 
-deep equals assertions with tolerance for chai.
+Deep equal assertions with tolerance for [chai](https://www.npmjs.com/package/chai).
 
 ### Why a v2?
 
@@ -20,7 +20,7 @@ npm install --save-dev chai-roughly-v2
 
 ## Usage
 
-After importing `chai` add the following code to use `chai-roughly-v2` assertions:
+After importing `chai`, add the following code to use `chai-roughly-v2` assertions:
 
 ```js
 const chai = require('chai');
@@ -34,8 +34,9 @@ and can be overwritten by using e.g.
 `expect(...).to.roughly(0.001).deep.equal(...)`.
 
 ```js
-it('works', function () {
-    expect({value: 42}).to.roughly.deep.equal({value: 41.9999999});
+it('works', () => {
+  const x = 41.9999999;
+  expect(x).to.roughly.deep.equal({ value: 42 });
 });
 ```
 
