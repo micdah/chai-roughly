@@ -34,9 +34,11 @@ and can be overwritten by using e.g.
 `expect(...).to.roughly(0.001).deep.equal(...)`.
 
 ```js
+const { expect } = chai;
+
 it('works', () => {
-  const x = 41.9999999;
-  expect(x).to.roughly.deep.equal({ value: 42 });
+  const result = { value: 41.9999999 };
+  expect(result).to.roughly.deep.equal({ value: 42 });
 });
 ```
 
