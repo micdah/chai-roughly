@@ -34,6 +34,6 @@
     "mocha": "^10.0.0"
   },
   "dependencies": {
-    "deep-eql": "^4.1.0"
+    "deep-eql": "^4.1.1"
   }
 }
